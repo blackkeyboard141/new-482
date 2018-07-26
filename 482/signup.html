@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up!</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<header>
+		
+		<div class="container">
+			<a href="/" class="logo">
+				<img src="logo.jpg" alt="NSU E-magazine" id="nylogo">
+			</a>
+		</div>
+		<div class="navbar" style="float:right;">
+            <ul id="navItems" style="float:right;">
+                <li><a class="active" href="signup.html" style="float:right;">Log in</a></li>
+                <!-- <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li> -->
+            </ul>
+        </div>
+
+
+	</header>
+
+
+	<div id = formbox  align="center">
+
+
+		<div id= "form">
+
+			<h2> <br>Create account </h2>
+
+			<p>
+				Already have an account?
+				<a href="login2.html">Log in</a>
+			</p>
+
+			<div id= wrapper>
+
+			<form>
+				
+				<table>
+					
+					<tr>
+						<td>First name</td>
+						<td>
+							<input type="text" id="fName" name="fName">
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Last name</td>
+						<td>
+							<input type="text" id="lName" name="lName">
+						</td>
+					</tr>
+
+					<tr>
+						<td>Email</td>
+						<td>
+							<input type="text" id="email" name="email">
+						</td>
+					</tr>
+					<tr>
+						<td>Username</td>
+						<td>
+							<input type="text" id="username" name="username">
+						</td>
+					</tr>
+
+					<tr>
+						<td>Password</td>
+						<td>
+							<input type="password" id="pass" name="pass">
+						</td>
+					</tr>
+
+					<tr>
+						<td>Confirm password</td>
+						<td>
+							<input type="password" id="Cpass" name="Cpass">
+						</td>
+					</tr>
+
+					<tr>
+						<td>NSU ID:</td>
+						<td>
+							<input type="text" id="Uid" name="Uid">
+						</td>
+					</tr>
+
+					<tr>
+						<td>Be a :</td>
+						<td>
+							<form align ="left">
+							<input type="radio" name="which" value="writer" checked> Writer<br>
+		  					<input type="radio" name="which" value="editor"> Editor<br>
+		  					<input type="radio" name="which" value="reader"> Reader<br>
+		  					</form>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input class="btn" type="submit" name="Submit" value="Sign Up" >
+						</td>
+					</tr>
+
+				</table>
+
+
+			</form>
+			</div>
+
+		</div>
+
+	</div>
+
+<!-- 
+PHP code for submitting Form strts here
+ -->
+
+	<?php 
+		require ("DB.php");
+		if (isset($_POST['submit'])){
+			$username = $_POST['uname'];
+			$email = $_POST['email'];
+			$location = $_POST['location'];
+
+			$sql = "INSERT INTO users (username,email,location)
+			values ('$username','$email','$location')";
+			$db = connection();
+			mysqli_query ($db,$sql);
+		}
+
+
+
+	 ?>
+
+
+	<footer align="center">
+		<div class="copyright">
+			<a href="www.google.com">© 2018 NSU E-magazine</a>
+		</div>
+		<div class="helpfulLinks">
+			<ul>
+				<li><a href="www.google.com">Help</a></li>
+				<li><a href="www.google.com">Feedback</a></li>
+			</ul>
+		</div>
+		<div class="socialLinks">
+			<ul>
+				<li><a href="www.facebook.com">Facebook</a></li>
+				<li><a href="www.twitter.com">Twitter</a></li>
+			</ul>
+		</div>
+		
+	</footer>
+
+
+</body>
+</html>
+
+
+
